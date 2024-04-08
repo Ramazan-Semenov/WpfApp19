@@ -1,0 +1,36 @@
+﻿
+<script>
+    // async - requires that .NET Method is async
+    var msg = window.chrome.webview.hostObjects.dotnet.SayHello("Rick")
+        .then(function (msg) { alert(msg); },
+            function () { alert('failed'); })
+
+    // sync
+    var msg = window.chrome.webview.hostObjects.sync.dotnet.SayHello("Rick")
+    alert(msg);
+</script>
+
+<!--<input type="button" value="Load data from V5" onclick="RequestData()" />
+<input type="button" value="Load data from V5" onclick="RequessdtData()" />
+
+
+    <script>
+        window.chrome.webview.addEventListener('message', event => {
+            alert(event.data);
+            WriteDataFromCsharp(event.data);
+        });
+        function WriteDataFromCsharp(data) {
+            var target = document.getElementById('target');
+            if (target === null) { alert('target not found') };
+            //alert(target.id);
+            //target.textContent = event.data;
+
+            rootNode = JSON.parse(data);
+            target.innerHTML = addTable(rootNode); //addTable create an HTML table from the deserialized object rootNode
+        }
+        function RequestData() {
+            //function triggered by a button on the html page
+            //alert('post to c#');
+            window.chrome.webview.postMessage('Hello .NET from JavaScript');
+        }
+    </script>-->
